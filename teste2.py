@@ -1,4 +1,2 @@
-x =10
-while(x>1):
-    print(x)
-    x=x-1
+for rodada in range(1, 10):
+    print(rodada)
