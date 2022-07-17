@@ -19,3 +19,13 @@ idade = input('Digite sua idade:')
 print('Seu nome é {} e sua idade é {}'.format(nome, idade))
 
 bool(4 == 8/2)
+
+while True:
+    try:
+        n = int(input('Digite um numero para calcular seu fatorial: '))
+        if n < 0:
+            print('Número deve ser maior ou igual a zero')
+        else:
+            break  # sai do loop
+    except ValueError:
+        print('Você não digitou um número')
