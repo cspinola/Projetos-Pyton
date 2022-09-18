@@ -1,63 +1,67 @@
+
 import random
 
-print('******************************************')
-print('***Bem	vindo	ao	jogo	da	Forca!***')
-print('******************************************')
 
-jogar = True
+def jogar():
+    print('******************************************')
+    print('***Bem	vindo	ao	jogo	da	Forca!***')
+    print('******************************************')
 
-while jogar:
-    plavras = ['banana', 'palavra', 'escova',
-               'chave', 'caneta', 'prato', 'papel', 'comida']
-    palavra_secreta = random.choice(plavras)
-    # palavra_secreta = 'banana'
+    jogar = True
 
-    acertou = False
-    enforcou = False
+    while jogar:
+        plavras = ['banana', 'palavra', 'escova',
+                   'chave', 'caneta', 'prato', 'papel', 'comida']
+        palavra_secreta = random.choice(plavras)
+        # palavra_secreta = 'banana'
 
-    letras_acertadas = []
-    for i in palavra_secreta:
-        letras_acertadas.append('_')
+        acertou = False
+        enforcou = False
 
-    erros = 0
+        letras_acertadas = []
+        for i in palavra_secreta:
+            letras_acertadas.append('_')
 
-    print('Tente acertar a Palavra!\n Você possui 6 tentativas no caso a letra digitada não faça parte da palavra secreta.')
+        erros = 0
 
-    while (not acertou and not enforcou):
-        chute = input('Digite uma letra:')
+        print('Tente acertar a Palavra!\n Você possui 6 tentativas no caso a letra digitada não faça parte da palavra secreta.')
 
-        if (chute in palavra_secreta):
+        while (not acertou and not enforcou):
+            chute = input('Digite uma letra:')
 
-            posicao = 0
+            if (chute in palavra_secreta):
 
-            for letra in palavra_secreta:
-                if (chute.upper() == letra.upper()):
-                    print('Encontrei a letra {} na posição {}'.format(
-                        letra, posicao))
-                    letras_acertadas[posicao] = letra
-                posicao += 1
+                posicao = 0
 
+                for letra in palavra_secreta:
+                    if (chute.upper() == letra.upper()):
+                        print('Encontrei a letra {} na posição {}'.format(
+                            letra, posicao))
+                        letras_acertadas[posicao] = letra
+                    posicao += 1
+
+            else:
+                erros += 1
+                print('Essa letra não faz parte da palavra secreta, você tem {} tentativas'.format(
+                    6-erros))
+
+            acertou = '_' not in letras_acertadas
+            enforcou = erros == 6
+            print(letras_acertadas)
+        # print('Você errou {} sendo o máximo de 6'.format(erros))
+
+        if (acertou):
+            print('Parabéns! Você acertou! A palavra secreta era {}.'.format(
+                palavra_secreta))
         else:
-            erros += 1
-            print('Essa letra não faz parte da palavra secreta, você tem {} tentativas'.format(
-                6-erros))
+            print('Você perdeu o jogo! A palavra secreta era {}.'.format(
+                palavra_secreta))
 
-        acertou = '_' not in letras_acertadas
-        enforcou = erros == 6
-        print(letras_acertadas)
-    # print('Você errou {} sendo o máximo de 6'.format(erros))
+        continuar = input("Deseja continuar jogando? (s/n): ")
 
-    if (acertou):
-        print('Parabéns! Você acertou! A palavra secreta era {}.'.format(
-            palavra_secreta))
-    else:
-        print('Você perdeu o jogo! A palavra secreta era {}.'.format(palavra_secreta))
+        if continuar == 's':
+            jogar = True
+        else:
+            jogar = False
 
-    continuar = input("Deseja continuar jogando? (s/n)")
-
-    if continuar == 's':
-        jogar = True
-    else:
-        jogar = False
-
-print('Fim do Jogo!!!')
+    print('Fim do Jogo!!!')
