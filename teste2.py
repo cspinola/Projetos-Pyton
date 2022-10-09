@@ -24,3 +24,19 @@ print('O menor elemento é: {}'.format(min_num))
 print('A média dos elemento é: {}'.format(mean_numbers/len(lista)))
 print('A soma dos elementos negativos é: {}'.format(neg_sum))
 print('Os números pares são: {}'.format(list_even))
+
+# arquivo = open('palavras.txt', 'a')
+# arquivo.write('banana\n')
+# arquivo.write('melancia\n')
+# arquivo.close()
+
+arquivo = open('palavras.txt', 'r')
+palavras = []
+
+for linha in arquivo:
+    # linha.strip() # caso tenha caractare especial na linha
+    palavras.append(linha)
+    print(linha)
+
+print(palavras)
+arquivo.close()

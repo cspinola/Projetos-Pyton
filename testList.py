@@ -16,3 +16,6 @@ for index in range(0, len(lista)):
         # Soma	dos	números	negativos
         if(lista[index] < 0):
             somaNegativos = somaNegativos + lista[index]
+
+
+
